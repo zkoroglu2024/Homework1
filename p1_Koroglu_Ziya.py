@@ -6,12 +6,7 @@ import matplotlib.pyplot as plt
 
 while True:
 
-    # read the coefficients, empty line or CTRL-Z ends the program
-    try:
-        first = input("Enter a: ")
-    except EOFError:
-        print()
-        break
+    first = input("Enter a: ")
 
     if first == "":
         break
@@ -34,20 +29,21 @@ while True:
 
     print()
 
-    # decide the interval for x
-    # xopt is the vertex, so the min or max of the function
     xopt = -b / (2*a)
     d = math.sqrt(abs(delta)) / abs(a)
+
     if d < 1:
         d = 1
+
     left = xopt - d
     right = xopt + d
 
-    # 150 points
     n = 150
     step = (right - left) / (n - 1)
+
     x = []
     y = []
+
     for i in range(n):
         xi = left + i*step
         x.append(xi)
